@@ -1,9 +1,6 @@
-
-
-
 import localFont from "next/font/local";
 import "./globals.css";
-// import React from "react";
+import ServiceWorkerRegistrar from "./ServiceWorkerRegistrar";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -23,24 +20,12 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-  // React.useEffect(() => {
-  //   if ("serviceWorker" in navigator) {
-  //     console.log("true man")
-  //     navigator.serviceWorker
-  //       .register("/service-worker.js")
-  //       .then((registration) => {
-  //         console.log("Service Worker registered with scope:", registration.scope);
-  //       })
-  //       .catch((error) => {
-  //         console.error("Service Worker registration failed:", error);
-  //       });
-  //   }
-  // }, []);
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <ServiceWorkerRegistrar />
         {children}
       </body>
     </html>
